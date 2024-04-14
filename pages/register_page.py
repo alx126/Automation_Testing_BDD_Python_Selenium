@@ -91,7 +91,7 @@ class RegisterPage(BasePage):
         return self.get_element_text(self.EMAIL_ERROR)
 
     def get_register_wrong_email_error_text(self):
-        assert self.get_element_text(self.WRONG_EMAIL_ERROR)
+        return self.get_element_text(self.WRONG_EMAIL_ERROR)
 
     def is_wrong_email_error_displayed(self):
         assert self.is_element_displayed(self.WRONG_EMAIL_ERROR)
@@ -111,3 +111,5 @@ class RegisterPage(BasePage):
     def get_already_registered_email_message_text(self):
         return self.get_element_text(self.ALREADY_REGISTERED_EMAIL_ERR_MSG)
 
+    def verify_already_registered_email_message_text(self, text):
+        assert self.get_element_text(self.ALREADY_REGISTERED_EMAIL_ERR_MSG) == text, "The error message is not correct!"

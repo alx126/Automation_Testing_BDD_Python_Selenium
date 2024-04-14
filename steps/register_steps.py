@@ -118,5 +118,5 @@ def step_impl(context):
 
 @then('"{message}" message is displayed')
 def step_impl(context, message):
-    assert context.register_page.get_already_registered_email_message_text() == message
-
+    # assert context.register_page.get_already_registered_email_message_text() == message
+    context.register_page.verify_already_registered_email_message_text(message)
