@@ -43,7 +43,7 @@ def step_impl(context):
 
 @then('The error text contains "{message}"')
 def step_impl(context, message):
-    assert message in context.login_page.get_main_error_message_text()
+    context.login_page.verify_main_error_message_text(message)
 
 
 @then('Email error message is displayed')
@@ -53,7 +53,7 @@ def step_impl(context):
 
 @then('Email error message text is "{message}"')
 def step_impl(context, message):
-    assert context.login_page.get_login_email_error_message_text() == message
+    context.login_page.verify_login_email_error_message_text(message)
 
 
 @then('Login page URL is "{url}"')

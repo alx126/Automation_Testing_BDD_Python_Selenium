@@ -93,12 +93,12 @@ def step_impl(context):
 
 @then('Email error text is "{message}"')
 def step_impl(context, message):
-    assert context.register_page.get_register_email_error_text() == message
+    context.register_page.verify_register_email_error_text(message)
 
 
 @then('Wrong email error text is "{message}"')
 def step_impl(context, message):
-    assert context.register_page.get_register_wrong_email_error_text() == message
+    context.register_page.verify_register_wrong_email_error_text(message)
 
 
 @then('Password error is displayed')
@@ -118,5 +118,4 @@ def step_impl(context):
 
 @then('"{message}" message is displayed')
 def step_impl(context, message):
-    # assert context.register_page.get_already_registered_email_message_text() == message
     context.register_page.verify_already_registered_email_message_text(message)

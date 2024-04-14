@@ -90,8 +90,14 @@ class RegisterPage(BasePage):
     def get_register_email_error_text(self):
         return self.get_element_text(self.EMAIL_ERROR)
 
+    def verify_register_email_error_text(self, text):
+        assert self.get_element_text(self.EMAIL_ERROR) == text, "The email error text is not correct!"
+
     def get_register_wrong_email_error_text(self):
         return self.get_element_text(self.WRONG_EMAIL_ERROR)
+
+    def verify_register_wrong_email_error_text(self, text):
+        assert self.get_element_text(self.WRONG_EMAIL_ERROR) == text, "The wrong email error text is not correct!"
 
     def is_wrong_email_error_displayed(self):
         assert self.is_element_displayed(self.WRONG_EMAIL_ERROR)

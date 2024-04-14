@@ -49,11 +49,17 @@ class LoginPage(BasePage):
     def get_main_error_message_text(self):
         return self.get_element_text(self.ERROR_MESSAGE_MAIN)
 
+    def verify_main_error_message_text(self, text):
+        assert text in self.get_element_text(self.ERROR_MESSAGE_MAIN), "The error message text is not correct!"
+
     def is_email_error_message_displayed(self):
         assert self.is_element_displayed(self.ERROR_MESSAGE_EMAIL)
 
     def get_login_email_error_message_text(self):
         return self.get_element_text(self.ERROR_MESSAGE_EMAIL)
+
+    def verify_login_email_error_message_text(self, text):
+        assert self.get_element_text(self.ERROR_MESSAGE_EMAIL) == text, "The error message text is not correct!"
 
     def is_no_customer_account_found_message_displayed(self):
         assert "No customer account found" in self.get_main_error_message_text()
