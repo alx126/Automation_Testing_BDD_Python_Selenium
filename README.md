@@ -1,4 +1,4 @@
-# Proiect de testare automata BDD Python
+# Proiect de testare automata BDD cu Python / Selenium
 
 ## Implementare teste automate pentru magazin online
 
