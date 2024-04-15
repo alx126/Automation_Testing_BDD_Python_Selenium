@@ -10,13 +10,14 @@
 **Site:** https://demo.nopcommerce.com/
 
 **Language:** Python (https://www.python.org/downloads/)<br>
-**Limbaj:** Python (https://www.python.org/downloads/)
+**Limbaj:** Python (https://www.python.org/downloads/) <br>
 
 
 **Methodology:** Behavior Driven Design (BDD)<br>
-**Metodologie:** Behavior Driven Design (BDD)
+**Metodologie:** Behavior Driven Design (BDD) <br>
 
-**Design pattern:** Page object model (POM)
+**Design pattern:** Page object model (POM) <br>
+**Model design:** Page object model (POM) <br>
 
 **IDE:** PyCharm Community Edition 2023.2.3  (https://www.jetbrains.com/pycharm/download/?section=windows)
 ___
