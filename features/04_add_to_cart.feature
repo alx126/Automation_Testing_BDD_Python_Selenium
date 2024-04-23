@@ -3,7 +3,7 @@ Feature: Test the "Add to cart" functionality
   Background: I am on the Home Page
     Given I am on the Home Page
 
-    @cart
+    @cart @simple
     Scenario: Test that products can be added to shopping cart
       When I enter "nike sb zoom" in the search field
       When I click on the search button
