@@ -9,3 +9,8 @@ def step_impl(context):
 @then('Wishlist displays {qty} item')
 def step_impl(context, qty):
     context.home_page.verify_wishlist_qty(qty)
+
+
+@then('The message contains a link to the Wishlist')
+def step_impl(context):
+    context.search_results_page.is_confirmation_message_containing_link_to_wishlist()

@@ -13,14 +13,14 @@ Feature: Test the functionality of the Register Page
       Then Confirm password error is displayed
 
 
-    @simple @password @register
+    @simple @password @register @parameterized
     Scenario: Check that trying to enter different confirmation password displays error field
       When I insert "myPassw0rd" in the Password field
       When I insert "myPassw0r" in the Confirm password field
       When I click on the Register button
       Then Confirm password error is displayed
 
-    @simple @email @register
+    @simple @email @register @parameterized
     Scenario: Check that trying to register using an incorrect email format displays email error field
       When I insert "Alex" in the First name field
       When I insert "Popa" in the Last name field
@@ -35,7 +35,7 @@ Feature: Test the functionality of the Register Page
       Then Email error text is "Wrong email"
 
 
-    @simple @email @register
+    @simple @email @register @parameterized
     Scenario: Check that trying to register using an incorrect email format displays wrong email error
       When I insert "Alex" in the First name field
       When I insert "Popa" in the Last name field
@@ -67,7 +67,7 @@ Feature: Test the functionality of the Register Page
         Then Completed registration message is displayed
 
 
-        @register
+      @register
       Scenario: Check that trying to register an already existing email address displays email already exists error
         When I select male gender
         When I insert "Alex" in the First name field
@@ -75,7 +75,7 @@ Feature: Test the functionality of the Register Page
         When I select day "26" for Date of birth
         When I select month "May" for Date of birth
         When I select year "2015" for Date of birth
-        When I insert "alex.popa@fakes.com" in the Email field
+        When I insert "alex.popi@fakes.com" in the Email field
         When I insert "APOLLO SRL" in the Company name field
         When I check the Newsletter checkbox
         When I insert "myPassw0rd" in the Password field

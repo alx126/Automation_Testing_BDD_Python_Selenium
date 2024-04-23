@@ -40,6 +40,9 @@ class BasePage(Browser):
     def get_element_text(self, locator):
         return self.find(locator).text
 
+    def wait_get_element_text(self, locator, seconds_to_wait):
+        return self.wait_for_element_to_be_present(locator, seconds_to_wait).text
+
     def clear(self, locator):
         self.find(locator).clear()
 

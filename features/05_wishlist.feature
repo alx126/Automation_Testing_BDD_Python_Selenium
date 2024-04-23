@@ -8,5 +8,6 @@ Feature: Test the Wishlist functionality
         When I enter "nike sb zoom" in the search field
         When I click on the search button
         When I click on the "Add to wishlist" button
-        Then A confirmation message is displayed
+        Then A confirmation message is displayed: "The product has been added to your wishlist"
+        Then The message contains a link to the Wishlist
         Then Wishlist displays 1 item

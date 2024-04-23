@@ -13,6 +13,12 @@ class SearchResultsPage(BasePage):
     ADD_TO_WISHLIST_BUTTON = (By.CLASS_NAME, "add-to-wishlist-button")
 
     CONFIRMATION_MESSAGE = (By.CLASS_NAME, "bar-notification.success")
+    CONFIRMATION_MESSAGE_TEXT_1 = (By.XPATH, '//*[@id="bar-notification"]//p[text()]')
+    CONFIRMATION_MESSAGE_TEXT_2 = (By.XPATH, '//*[@id="bar-notification"]//a[text()]')
+    CONFIRMATION_MESSAGE_LINK = (By.XPATH, '//*[@id="bar-notification"]//a')
+
+    SHOPPING_CART_LINK = 'https://demo.nopcommerce.com/cart'
+    WISHLIST_LINK = 'https://demo.nopcommerce.com/wishlist'
 
     def are_all_products_displayed(self):
         self.wait_for_element_to_be_present(self.PRODUCT_ITEM, 3)
@@ -40,5 +46,19 @@ class SearchResultsPage(BasePage):
         self.click(self.ADD_TO_WISHLIST_BUTTON)
 
     def is_confirmation_message_displayed(self):
-        return self.wait_for_element_to_be_present(self.CONFIRMATION_MESSAGE, 1)
+        assert self.wait_for_element_to_be_present(self.CONFIRMATION_MESSAGE, 1).is_displayed() == True
+        # assert self.wait_for_element_to_be_present(self.CONFIRMATION_MESSAGE_TEXT, 1).text == text
         # return self.find(self.CONFIRMATION_MESSAGE)
+
+    def is_confirmation_message_containing_text(self, text):
+        assert self.wait_for_text_to_be_present_in_element(self.CONFIRMATION_MESSAGE_TEXT_1, text, 1)
+
+    def is_confirmation_message_text_displayed(self, text):
+        message = self.wait_get_element_text(self.CONFIRMATION_MESSAGE_TEXT_1, 2)
+        assert message == text, f'The message is: {message}'
+
+    def is_confirmation_message_containing_link_to_cart(self):
+        assert self.find(self.CONFIRMATION_MESSAGE_LINK).get_attribute('href') == self.SHOPPING_CART_LINK
+
+    def is_confirmation_message_containing_link_to_wishlist(self):
+        assert self.find(self.CONFIRMATION_MESSAGE_LINK).get_attribute('href') == self.WISHLIST_LINK

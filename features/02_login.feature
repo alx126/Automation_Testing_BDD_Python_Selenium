@@ -11,7 +11,7 @@ Feature: Test the functionality of the Login Page
 
 
   @login @success
-    #Se ruleaza dupa "Test complete registration"
+    #Se ruleaza dupa "Test complete registration", cu aceiasi parametri
   Scenario: Check that the login is done successfully with a registered account
     When I insert "alex.popu@fakes.com" in the email input
     When I insert "myPassw0rd" in the password input
@@ -25,8 +25,7 @@ Feature: Test the functionality of the Login Page
 
   @simple @smoke @login
   #Scenariu fara parametru
-  Scenario: Check that "No customer account found" message is displayed when the user tries to log in with an
-    unregistered email
+  Scenario: Check that "No customer account found" message is displayed when the user tries to log in with an unregistered email
     When I insert an unregistered email in the email input
     When I insert a password in the password input
     When I click on the login button
@@ -35,8 +34,7 @@ Feature: Test the functionality of the Login Page
 
   @parameterized @smoke @login
   #Scenariu cu parametru
-  Scenario: Check that "No customer account found" message is displayed when the user tries to log in with an
-    unregistered email
+  Scenario: Check that "No customer account found" message is displayed when the user tries to log in with an unregistered email
     When I insert "wrong_email@host.com" in the email input
     When I insert "parolaoarecare" in the password input
     When I click on the login button
